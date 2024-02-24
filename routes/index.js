@@ -10,7 +10,7 @@ router.get("/home", function (req, res, next) {
 });
 
 router.get("/about_me", function (req, res, next) {
-  res.render("about_me", { title: "about me" });
+  res.render("about_me", { title: "about mel" });
 });
 
 router.get("/projects", function (req, res, next) {
