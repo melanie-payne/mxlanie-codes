@@ -29,42 +29,6 @@
       ><i class="fa-solid fa-square-phone fa-xl" style="color: #ebc1e4"></i
     ></a>
   </p>
-  <script>
-    const githubUsername = "melanie-payne";
-    const accessToken =
-      "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";
-
-    const apiUrl = `https://api.github.com/users/${githubUsername}/events`;
-
-    // Fetch events using GitHub API
-    fetch(apiUrl, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((events) => {
-        const commitEvents = events
-          .filter((event) => event.type === "PushEvent")
-          .slice(0, 365); // Display the latest 10 commit events
-
-        const commitHistoryElement = document.getElementById("commit-history");
-
-        commitEvents.forEach((event) => {
-          const commitElement = document.createElement("div");
-          const repoName = event.repo.name;
-          const commitCount = event.payload.size;
-
-          commitElement.innerHTML = `
-            <p>Repository: <strong>${repoName}</strong></p>
-            <p>Commits: ${commitCount}</p>
-            <hr>
-          `;
-          commitHistoryElement.appendChild(commitElement);
-        });
-      })
-      .catch((error) => console.error("Error fetching commit events:", error));
-  </script>
   <!-- <p>My mission is to provide a comprehensive platform for showcasing my software projects, skills, and resume to potential employers. As a dedicated software engineering student with a passion for programming, I am committed to delivering high-quality solutions that meet the needs of today's dynamic industry. Building upon my diverse background in psychology, I bring a unique perspective to my work, blending analytical thinking with creativity. Through my portfolio, I aim to convey my technical proficiency, problem-solving abilities, and strong work ethic. By engaging with potential employers, I seek to forge meaningful connections and contribute to innovative projects that make a positive impact in the software engineering field.</p> -->
 </main>
 <%- include partials/bottom-nav.ejs %> <%- include partials/footer.ejs %>

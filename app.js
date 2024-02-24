@@ -3,6 +3,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+const favicon = require("serve-favicon");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -13,6 +14,12 @@ var contactMeRouter = require("./routes/contact_me");
 
 var app = express();
 
+// Specify the path to your favicon file
+const faviconPath = path.join(__dirname, "favicon.ico");
+
+// Use the serve-favicon middleware
+app.use(favicon(faviconPath));
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -22,9 +29,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname)));
 
-//this is the line that made the bootstrap and icons work
+// this is the line that made the bootstrap and icons work
 app.use(express.static(path.join(__dirname, "node_modules")));
+
+// Serve site.webmanifest file
+app.get("/site.webmanifest", (req, res) => {
+  res.sendFile(path.join(__dirname, "site.webmanifest"));
+});
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
