@@ -25,4 +25,12 @@ router.get("/contact_me", function (req, res, next) {
   res.render("contact_me", { title: "contact me" });
 });
 
+router.get("/blog", function (req, res, next) {
+  res.render("blog", { title: "blog" });
+});
+
+router.get("/welcome-to-my-blog", function (req, res, next) {
+  res.render("welcome-to-my-blog", { title: "welcome to my blog" });
+});
+
 module.exports = router;
