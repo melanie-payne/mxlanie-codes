@@ -2,11 +2,11 @@ var express = require("express");
 var router = express.Router();
 
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "home" });
+  res.render("index", { title: "melanie codes" });
 });
 
 router.get("/home", function (req, res, next) {
-  res.render("index", { title: "home" });
+  res.render("index", { title: "melanie codes" });
 });
 
 router.get("/about_me", function (req, res, next) {
