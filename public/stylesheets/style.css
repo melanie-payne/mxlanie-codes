@@ -19,6 +19,7 @@ body {
   background-position: center; /* Center the background image */
   background-repeat: no-repeat; /* Prevent the background image from repeating */
   background-size: cover;
+  background-color: rgb(243, 194, 245);
 }
 /* body::before {
   content: "";
@@ -187,4 +188,9 @@ h3 {
     calc(var(--size) * 0.4) calc(var(--size) * 0.6) var(--petal-clr),
     calc(var(--size) * -0.4) calc(var(--size) * 0.6) var(--petal-clr),
     calc(var(--size) * -0.7) 0 var(--petal-clr);
+}
+
+footer {
+  margin-top: auto;
+  padding-bottom: 0%;
 }
