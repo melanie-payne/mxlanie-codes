@@ -1,4 +1,17 @@
 <script src="/jquery/dist/jquery.min.js"></script>
 <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+    function makeBackground() {
+      const container = document.getElementById("flower-container");
+      const numFlowers = 50;
+      let backgroundHTML = ``;
+      for (let i = 0; i < numFlowers; i++) {
+        backgroundHTML += `<div class='flower' id='flower'> </div>`;
+      }
+      container.innerHTML = backgroundHTML;
+    }
+
+    makeBackground();
+  </script>
 </body>
 </html>
